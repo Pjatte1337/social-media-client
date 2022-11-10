@@ -52,6 +52,10 @@ Installing SCSS
 npm i scss
 ```
 
+```md
+npm i start
+```
+
 Install prettier 
 ```md
 npm install --save-dev prettier
