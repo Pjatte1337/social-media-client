@@ -18,7 +18,7 @@ describe('Logout', () => {
       .type('Pjatte123@stud.noroff.no');
     cy.get("input[type='password']:visible").should('exist').type('Olebrum94');
     cy.get('.btn-success:visible').click();
-    cy.wait(3000);
+    cy.wait(2000);
     cy.then(
       () => expect(window.localStorage.getItem('profile')).to.not.be.null
     );

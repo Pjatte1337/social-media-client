@@ -14,7 +14,7 @@ describe('Create a Post', () => {
       .type('Pjatte123@stud.noroff.no');
     cy.get("input[type='password']:visible").should('exist').type('Olebrum94');
     cy.get('.btn-success:visible').click();
-    cy.wait(3500);
+    cy.wait(2000);
     cy.visit('/');
   });
 
@@ -36,11 +36,11 @@ describe('Create a Post', () => {
       .should('exist')
       .type('creating a post with cypress test');
     cy.get('button[data-action="submit"]').click();
-    cy.wait(5000);
+    cy.wait(2000);
     cy.url().should('include', 'view=post&postId=');
-    cy.wait(1000);
+    cy.wait(2000);
     cy.get('button[data-action="delete"]:visible').click();
-    cy.wait(1000);
+    cy.wait(2000);
     cy.url().should('include', '/');
   });
 
