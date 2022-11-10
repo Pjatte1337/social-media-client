@@ -1,5 +1,4 @@
 //testuser Pjatte123@stud.noroff.no
-//testuser Pjatte123@stud.noroff.no
 
 describe('Authentication', () => {
   beforeEach(() => {
