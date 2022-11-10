@@ -1,8 +1,8 @@
 # Workflow CA
 
 [![Deploy static content to Pages](https://github.com/Pjatte1337/social-media-client/actions/workflows/static.yml/badge.svg)](https://github.com/Pjatte1337/social-media-client/actions/workflows/static.yml)
-[![Deploy static content to Pages](https://github.com/Pjatte1337/social-media-client/actions/workflows/static.yml/badge.svg)](https://github.com/Pjatte1337/social-media-client/actions/workflows/static.yml)
-[![Deploy static content to Pages](https://github.com/Pjatte1337/social-media-client/actions/workflows/static.yml/badge.svg)](https://github.com/Pjatte1337/social-media-client/actions/workflows/static.yml)
+[![Automated Unit Testing](https://github.com/Pjatte1337/social-media-client/actions/workflows/unit-test.yml/badge.svg)](https://github.com/Pjatte1337/social-media-client/actions/workflows/unit-test.yml)
+[![Automated E2E Testing](https://github.com/Pjatte1337/social-media-client/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/Pjatte1337/social-media-client/actions/workflows/e2e-test.yml)
 
 ---
 
@@ -50,6 +50,10 @@ npm i bootstrap
 Installing SCSS
 ```md
 npm i scss
+```
+
+```md
+npm i start
 ```
 
 Install prettier 
