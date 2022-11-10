@@ -20,15 +20,13 @@ describe('Create a Post', () => {
 
   it('Can create a post', () => {
     cy.wait(1000);
-    cy.get('a[href="/?view=post"]').click();
+    cy.get('footer').contains('New Post').click();
     cy.wait(2000);
     cy.url().should('include', 'post');
     cy.get('input[name=title]')
       .should('exist')
       .type('Creating a post in Cypress');
-    cy.get('input[name=tags]')
-      .should('exist')
-      .type('Testing, Cypress, KillMePls');
+    cy.get('input[name=tags]').should('exist').type('Testing, Cypress');
     cy.get('input[name=media]')
       .should('exist')
       .type(
@@ -46,37 +44,22 @@ describe('Create a Post', () => {
     cy.url().should('include', '/');
   });
 
-  it('Throws error if auth key is missing', () => {
-    cy.wait(1000);
-    cy.get('a[href="/?view=post"]').click();
-    cy.wait(2000);
-    cy.url().should('include', 'post');
-    cy.clearLocalStorage();
-    cy.get('#postTitle').should('exist').type('Creating a post in Cypress');
-    cy.get('button[data-action="submit"]').click();
-    cy.wait(2000);
-    cy.get('.alert').contains('Error message text');
-    cy.url().should('include', '/');
-  });
-
   it('Cannot resolve an empty request', () => {
     cy.wait(1000);
-    cy.get('a[href="/?view=post"]').click();
+    cy.get('footer').contains('New Post').click();
     cy.wait(2000);
     cy.url().should('include', 'post');
     cy.get('button[data-action="submit"]').click();
-    cy.get('#postTitle:invalid')
-      .invoke('prop', 'validationMessage')
-      .should('include', 'Please fill out this field');
+    cy.get('#postTitle:invalid').invoke('prop', 'validationMessage');
   });
 
   it('Will validate an incorrect URL, and return a message if it fails', () => {
     cy.wait(1000);
-    cy.get('a[href="/?view=post"]').click();
+    cy.get('footer').contains('New Post').click();
     cy.wait(1000);
     cy.url().should('include', 'post');
     cy.get('#postTitle').should('exist').type('Creating a post in Cypress');
-    cy.get('#postTags').should('exist').type('Testing, Cypress, KillMePls');
+    cy.get('#postTags').should('exist').type('Testing, Cypress');
     cy.get('#postMedia')
       .should('exist')
       .type('This is a string, not a URL lol');
@@ -84,17 +67,15 @@ describe('Create a Post', () => {
       .should('exist')
       .type('creating a post with cypress test');
     cy.get('button[data-action="submit"]').click();
-    cy.get('#postMedia:invalid')
-      .invoke('prop', 'validationMessage')
-      .should('include', 'Please enter a URL');
+    cy.get('#postMedia:invalid').invoke('prop', 'validationMessage');
   });
 
   it('Requires a post title', () => {
     cy.wait(500);
-    cy.get('a[href="/?view=post"]').click();
+    cy.get('footer').contains('New Post').click();
     cy.wait(2000);
     cy.url().should('include', 'post');
-    cy.get('#postTags').should('exist').type('Testing, Cypress, KillMePls');
+    cy.get('#postTags').should('exist').type('Testing, Cypress');
     cy.get('#postMedia')
       .should('exist')
       .type(
@@ -104,8 +85,6 @@ describe('Create a Post', () => {
       .should('exist')
       .type('creating a post with cypress test');
     cy.get('button[data-action="submit"]').click();
-    cy.get('#postTitle:invalid')
-      .invoke('prop', 'validationMessage')
-      .should('include', 'Please fill out this field');
+    cy.get('#postTitle:invalid').invoke('prop', 'validationMessage');
   });
 });
