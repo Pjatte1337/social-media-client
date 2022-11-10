@@ -54,7 +54,7 @@ describe('Authentication', () => {
     cy.get("input[type='email']:visible")
       .should('exist')
       .type('Pjatte123@stud.noroff.no');
-    cy.get("input[type='password']:visible").should('exist').type('Olebrum94');
+    cy.get("input[type='password']:visible").should('exist').type('1234');
     cy.get('.btn-success:visible').click();
     cy.wait(3000);
     cy.then(() => expect(window.localStorage.getItem('profile')).to.be.null);
