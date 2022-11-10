@@ -6,7 +6,7 @@ describe('Logout', () => {
     cy.clearLocalStorage();
   });
 
-  it('will log out', () => {
+  it('logout the user', () => {
     cy.visit('/');
     cy.wait(1000);
     cy.get('.btn-close:visible').click();

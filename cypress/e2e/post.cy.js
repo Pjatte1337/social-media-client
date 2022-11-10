@@ -18,7 +18,7 @@ describe('Create a Post', () => {
     cy.visit('/');
   });
 
-  it('Can create a post', () => {
+  it('create a post', () => {
     cy.wait(1000);
     cy.get('footer').contains('New Post').click();
     cy.wait(2000);
@@ -44,7 +44,7 @@ describe('Create a Post', () => {
     cy.url().should('include', '/');
   });
 
-  it('Cannot resolve an empty request', () => {
+  it('Cannot resolve missing content', () => {
     cy.wait(1000);
     cy.get('footer').contains('New Post').click();
     cy.wait(2000);
@@ -53,16 +53,14 @@ describe('Create a Post', () => {
     cy.get('#postTitle:invalid').invoke('prop', 'validationMessage');
   });
 
-  it('Will validate an incorrect URL, and return a message if it fails', () => {
+  it('Will validate an incorrect URL', () => {
     cy.wait(1000);
     cy.get('footer').contains('New Post').click();
     cy.wait(1000);
     cy.url().should('include', 'post');
     cy.get('#postTitle').should('exist').type('Creating a post in Cypress');
     cy.get('#postTags').should('exist').type('Testing, Cypress');
-    cy.get('#postMedia')
-      .should('exist')
-      .type('This is a string, not a URL lol');
+    cy.get('#postMedia').should('exist').type('string');
     cy.get('#postBody')
       .should('exist')
       .type('creating a post with cypress test');
@@ -70,7 +68,7 @@ describe('Create a Post', () => {
     cy.get('#postMedia:invalid').invoke('prop', 'validationMessage');
   });
 
-  it('Requires a post title', () => {
+  it('Requires a title', () => {
     cy.wait(500);
     cy.get('footer').contains('New Post').click();
     cy.wait(2000);
