@@ -1,4 +1,5 @@
 //testuser Pjatte123@stud.noroff.no
+//testuser Pjatte123@stud.noroff.no
 
 describe('Authentication', () => {
   beforeEach(() => {
@@ -6,7 +7,7 @@ describe('Authentication', () => {
     cy.clearLocalStorage();
   });
 
-  it('will login', () => {
+  it('login', () => {
     cy.visit('/');
     cy.wait(1000);
     cy.get('.btn-close:visible').click();
