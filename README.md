@@ -6,6 +6,13 @@
 
 ---
 
+## Github actions
+- Deploying to github pages
+- Running unit testing
+- Running end to end testing
+
+---
+
 ## About the project
 This project is my delivery for the Course Assignment in Workflow from Noroff.
 
