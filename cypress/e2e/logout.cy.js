@@ -19,10 +19,6 @@ describe('Logout', () => {
     cy.get("input[type='password']:visible").should('exist').type('Olebrum94');
     cy.get('.btn-success:visible').click();
     cy.wait(2000);
-    cy.then(
-      () => expect(window.localStorage.getItem('profile')).to.not.be.null
-    );
-    cy.then(() => expect(window.localStorage.getItem('token')).to.not.be.null);
     cy.get("button[data-auth='logout']").click();
     cy.then(() => expect(window.localStorage.getItem('profile')).to.be.null);
     cy.then(() => expect(window.localStorage.getItem('token')).to.be.null);

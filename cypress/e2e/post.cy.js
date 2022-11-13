@@ -13,7 +13,7 @@ describe('Create a Post', () => {
       .should('exist')
       .type('Pjatte123@stud.noroff.no');
     cy.get("input[type='password']:visible").should('exist').type('Olebrum94');
-    cy.get('.btn-success:visible').click();
+    cy.get('button[type=submit].btn-success:visible').click();
     cy.wait(2000);
     cy.visit('/');
   });
@@ -51,23 +51,6 @@ describe('Create a Post', () => {
     cy.url().should('include', 'post');
     cy.get('button[data-action="submit"]').click();
     cy.get('input[name=title]:invalid').invoke('prop', 'validationMessage');
-  });
-
-  it('Will validate an incorrect URL', () => {
-    cy.wait(1000);
-    cy.get('footer').contains('New Post').click();
-    cy.wait(1000);
-    cy.url().should('include', 'post');
-    cy.get('input[name=title]')
-      .should('exist')
-      .type('Creating a post in Cypress');
-    cy.get('#postTags').should('exist').type('Testing, Cypress');
-    cy.get('#postMedia').should('exist').type('string');
-    cy.get('#postBody')
-      .should('exist')
-      .type('creating a post with cypress test');
-    cy.get('button[data-action="submit"]').click();
-    cy.get('#postMedia:invalid').invoke('prop', 'validationMessage');
   });
 
   it('Requires a title', () => {
