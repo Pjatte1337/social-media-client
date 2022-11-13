@@ -6,6 +6,27 @@
 
 ---
 
+## Github actions
+- Deploying to github pages
+- Running unit testing
+- Running end to end testing
+
+---
+
+## Unit tests
+- The login function returns a valid token when provided with valid credentials
+- The logout function clears the token from browser storage
+- The create item function creates a new item on the API
+
+---
+
+## e2e tests
+- The login form validates user inputs correctly based on API restrictions
+- The create item form validates user inputs correctly based on API restrictions
+- The logout button logs the user out when clicked
+
+---
+
 ## About the project
 This project is my delivery for the Course Assignment in Workflow from Noroff.
 
