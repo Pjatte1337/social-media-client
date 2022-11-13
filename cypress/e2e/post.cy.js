@@ -50,7 +50,7 @@ describe('Create a Post', () => {
     cy.wait(2000);
     cy.url().should('include', 'post');
     cy.get('button[data-action="submit"]').click();
-    cy.get('#postTitle:invalid').invoke('prop', 'validationMessage');
+    cy.get('input[name=title]:invalid').invoke('prop', 'validationMessage');
   });
 
   it('Will validate an incorrect URL', () => {
@@ -58,7 +58,9 @@ describe('Create a Post', () => {
     cy.get('footer').contains('New Post').click();
     cy.wait(1000);
     cy.url().should('include', 'post');
-    cy.get('#postTitle').should('exist').type('Creating a post in Cypress');
+    cy.get('input[name=title]')
+      .should('exist')
+      .type('Creating a post in Cypress');
     cy.get('#postTags').should('exist').type('Testing, Cypress');
     cy.get('#postMedia').should('exist').type('string');
     cy.get('#postBody')
@@ -83,6 +85,6 @@ describe('Create a Post', () => {
       .should('exist')
       .type('creating a post with cypress test');
     cy.get('button[data-action="submit"]').click();
-    cy.get('#postTitle:invalid').invoke('prop', 'validationMessage');
+    cy.get('input[name=title]:invalid').invoke('prop', 'validationMessage');
   });
 });
